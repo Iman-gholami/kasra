@@ -53,7 +53,7 @@ src/lib/store.ts      useSyncExternalStore cart/wishlist with stable SSR snapsho
 src/lib/checkout.ts   Validation, independent from rendering
 src/types/            Product, variant, query and adapter contracts
 public/images/        Local hero photo and garment illustrations
- tests/               Unit and production-browser tests
+tests/                Unit and production-browser tests
 ```
 
 Pages and product grids are Server Components. Interactive islands receive only their necessary product data. The entire fixture catalog is not imported by browser components. `/api/products` is a mock catalog read adapter, not a production backend: search returns at most six suggestions; selected-ID retrieval is bounded to 100 IDs. Catalog pages render 12 products at a time on the server. There is no large client search index.
