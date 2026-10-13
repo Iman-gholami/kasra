@@ -52,7 +52,9 @@ test("filter, URL persistence, sorting, pagination and back navigation", async (
   await page.goto("/shop");
   await page.getByRole("button", { name: /فیلتر و مرتب‌سازی/ }).click();
   await page.getByLabel("دسته‌بندی").selectOption("tshirt");
-  await page.getByLabel("مرتب‌سازی").selectOption("price-asc");
+  await page
+    .getByRole("combobox", { name: /مرتب‌سازی/ })
+    .selectOption("price-asc");
   await page.getByRole("button", { name: "اعمال فیلترها" }).click();
   await expect(page).toHaveURL(/category=tshirt/);
   let prices = await page
@@ -65,7 +67,9 @@ test("filter, URL persistence, sorting, pagination and back navigation", async (
   await page.reload();
   await expect(page.locator(".product-card")).toHaveCount(12);
   await page.getByRole("button", { name: /فیلتر و مرتب‌سازی/ }).click();
-  await page.getByLabel("مرتب‌سازی").selectOption("price-desc");
+  await page
+    .getByRole("combobox", { name: /مرتب‌سازی/ })
+    .selectOption("price-desc");
   await page.getByRole("button", { name: "اعمال فیلترها" }).click();
   prices = await page
     .locator(".product-card")
