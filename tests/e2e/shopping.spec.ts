@@ -136,7 +136,7 @@ test("sold-out product cannot be added", async ({ page }) => {
 });
 test("wishlist persists across routes and refresh", async ({ page }) => {
   await page.goto("/product/shomiz-1");
-  await page.getByRole("button", { name: /افزودن به علاقه‌مندی‌ها/ }).click();
+  await page.locator(".product-info").getByRole("button", { name: /افزودن به علاقه‌مندی‌ها/ }).click();
   await page.goto("/wishlist");
   await expect(page.locator(".product-card")).toHaveCount(1);
   await page.reload();
