@@ -50,7 +50,7 @@ test("filter, URL persistence, sorting, pagination and back navigation", async (
   page,
 }) => {
   await page.goto("/shop");
-  await page.locator(".filters summary").click();
+  await page.getByRole("button", { name: /فیلتر و مرتب‌سازی/ }).click();
   await page.getByLabel("دسته‌بندی").selectOption("tshirt");
   await page.getByLabel("مرتب‌سازی").selectOption("price-asc");
   await page.getByRole("button", { name: "اعمال فیلترها" }).click();
@@ -64,7 +64,7 @@ test("filter, URL persistence, sorting, pagination and back navigation", async (
   expect(prices).toHaveLength(12);
   await page.reload();
   await expect(page.locator(".product-card")).toHaveCount(12);
-  await page.locator(".filters summary").click();
+  await page.getByRole("button", { name: /فیلتر و مرتب‌سازی/ }).click();
   await page.getByLabel("مرتب‌سازی").selectOption("price-desc");
   await page.getByRole("button", { name: "اعمال فیلترها" }).click();
   prices = await page
@@ -136,7 +136,10 @@ test("sold-out product cannot be added", async ({ page }) => {
 });
 test("wishlist persists across routes and refresh", async ({ page }) => {
   await page.goto("/product/shomiz-1");
-  await page.locator(".product-info").getByRole("button", { name: /افزودن به علاقه‌مندی‌ها/ }).click();
+  await page
+    .locator(".product-info")
+    .getByRole("button", { name: /افزودن به علاقه‌مندی‌ها/ })
+    .click();
   await page.goto("/wishlist");
   await expect(page.locator(".product-card")).toHaveCount(1);
   await page.reload();

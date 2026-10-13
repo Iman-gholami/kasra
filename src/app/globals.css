@@ -8,7 +8,7 @@
   --beige: #e8dfd4;
   --rose: #b8847c;
   --accent: #80514a;
-  --muted: #716c64;
+  --muted: #625d55;
   --line: #e1dcd4;
   --white: #fff;
 }
@@ -2076,5 +2076,24 @@ caption {
     scroll-behavior: auto !important;
     animation: none !important;
     transition: none !important;
+  }
+}
+.filter-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 18px 0;
+  font-size: 13px;
+  text-align: right;
+  min-height: 58px;
+}
+.filter-drawer .filter-form {
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 14px;
+}
+@media (max-width: 390px) {
+  .filter-drawer .filter-form {
+    grid-template-columns: 1fr;
   }
 }

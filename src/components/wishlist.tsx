@@ -2,10 +2,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Heart } from "lucide-react";
-import { useShop } from "@/lib/store";
+import { useShop, useShopReady } from "@/lib/store";
 import type { Product } from "@/types/catalog";
 import { ProductGrid } from "./product-card";
 export function Wishlist() {
+  const ready = useShopReady();
   const { wishlist } = useShop(),
     ids = wishlist.join(",");
   const [products, setProducts] = useState<Product[]>([]),
@@ -32,6 +33,7 @@ export function Wishlist() {
       });
     return () => controller.abort();
   }, [ids, retry]);
+  if (!ready) return <p role="status">در حال آماده‌کردن انتخاب‌ها…</p>;
   if (!ids)
     return (
       <div className="empty">

@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { SlidersHorizontal, ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { categories, colors } from "@/data/categories";
 import { catalog } from "@/lib/catalog";
 import { digits } from "@/lib/format";
 import type { CatalogQuery } from "@/types/catalog";
 import { ProductGrid } from "./product-card";
+import { FilterPanel } from "./filter-panel";
 export async function CatalogView({
   query,
   title = "همه محصولات",
@@ -80,11 +81,7 @@ export async function CatalogView({
           </Link>
         ))}
       </div>
-      <details className="filters">
-        <summary>
-          <SlidersHorizontal size={18} /> فیلتر و مرتب‌سازی{" "}
-          <span>{active.length ? `(${digits(active.length)})` : ""}</span>
-        </summary>
+      <FilterPanel count={active.length}>
         <form action={base} className="filter-form">
           <label>
             جست‌وجو
@@ -175,7 +172,7 @@ export async function CatalogView({
             پاک کردن همه
           </Link>
         </form>
-      </details>
+      </FilterPanel>
       {active.length > 0 && (
         <div className="chips active-filters">
           {active.map(([key, value]) => (

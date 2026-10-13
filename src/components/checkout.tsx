@@ -97,6 +97,7 @@ export function Checkout() {
       {label}
       <input
         name={key}
+        aria-label={label}
         value={fields[key]}
         aria-invalid={!!errors[key]}
         aria-describedby={errors[key] ? `error-${key}` : undefined}
@@ -144,6 +145,7 @@ export function Checkout() {
               استان
               <select
                 name="province"
+                aria-label="استان"
                 value={fields.province}
                 aria-invalid={!!errors.province}
                 aria-describedby={
