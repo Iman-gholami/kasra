@@ -188,7 +188,10 @@ export async function CatalogView({
         </div>
       )}
       {result.total ? (
-        <ProductGrid products={result.products} />
+        <>
+          <h2 className="sr-only">محصولات</h2>
+          <ProductGrid products={result.products} />
+        </>
       ) : (
         <div className="empty">
           <h2>هنوز چیزی پیدا نکردیم</h2>

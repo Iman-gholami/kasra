@@ -239,3 +239,18 @@ test("all supporting routes and custom 404 render", async ({ page }) => {
   }
   expect((await page.goto("/missing-page"))?.status()).toBe(404);
 });
+
+test("mobile purchase controls follow variant choices without covering the title", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/product/shomiz-1");
+  const title = await page.locator(".product-info h1").boundingBox();
+  const sizes = await page.locator(".size-options").boundingBox();
+  const purchase = await page.locator(".purchase").boundingBox();
+  expect(title).not.toBeNull();
+  expect(sizes).not.toBeNull();
+  expect(purchase).not.toBeNull();
+  expect(purchase!.y).toBeGreaterThanOrEqual(sizes!.y + sizes!.height);
+  expect(purchase!.y).toBeGreaterThan(title!.y + title!.height);
+});

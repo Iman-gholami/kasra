@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useShop, useShopReady, cartTotal, clearCart } from "@/lib/store";
 import { validateCheckout, type CheckoutFields } from "@/lib/checkout";
 import { OrderSummary } from "./cart";
-import { money } from "@/lib/format";
+import { money, digits } from "@/lib/format";
 const provinces = [
   "آذربایجان شرقی",
   "آذربایجان غربی",
@@ -197,7 +197,7 @@ export function Checkout() {
               <li key={l.key}>
                 {l.name}
                 <small>
-                  {l.color} / {l.size} × {l.quantity}
+                  {l.color} / {l.size} × {digits(l.quantity)}
                 </small>
                 <span>{money(l.price * l.quantity)}</span>
               </li>

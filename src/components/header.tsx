@@ -60,7 +60,11 @@ export function Header() {
           >
             <Menu />
           </button>
-          <Link className="brand" href="/" aria-label="کسرا بوتیک، خانه">
+          <Link
+            className="brand"
+            href="/"
+            aria-label="KASRA. BOUTIQUE — کسرا بوتیک، خانه"
+          >
             <span>
               KASRA<span className="brand-dot">.</span>
             </span>
