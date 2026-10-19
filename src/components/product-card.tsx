@@ -3,7 +3,13 @@ import Link from "next/link";
 import type { Product } from "@/types/catalog";
 import { money, discount, digits } from "@/lib/format";
 import { WishButton } from "./wish-button";
-export function ProductCard({ product: p }: { product: Product }) {
+export function ProductCard({
+  product: p,
+  priority = false,
+}: {
+  product: Product;
+  priority?: boolean;
+}) {
   const available = p.variants.some((v) => v.stock > 0);
   return (
     <article className="product-card" data-price={p.price}>
@@ -16,6 +22,8 @@ export function ProductCard({ product: p }: { product: Product }) {
         >
           <Image
             src={p.images[0]}
+            preload={priority}
+            fetchPriority={priority ? "high" : undefined}
             alt={`تصویر نمونه ${p.name}`}
             width={640}
             height={840}
@@ -63,11 +71,21 @@ export function ProductCard({ product: p }: { product: Product }) {
     </article>
   );
 }
-export function ProductGrid({ products }: { products: Product[] }) {
+export function ProductGrid({
+  products,
+  prioritizeFirst = false,
+}: {
+  products: Product[];
+  prioritizeFirst?: boolean;
+}) {
   return (
     <div className="product-grid">
-      {products.map((p) => (
-        <ProductCard key={p.id} product={p} />
+      {products.map((p, index) => (
+        <ProductCard
+          key={p.id}
+          product={p}
+          priority={prioritizeFirst && index === 0}
+        />
       ))}
     </div>
   );

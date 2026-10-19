@@ -4,7 +4,7 @@ A Persian, RTL, frontend-only Next.js storefront prototype. No payments, SMS, au
 
 ## Run
 
-Node.js 20.9+ is required (Node 22 is used in CI).
+Node.js 22.19+ is required, including the Lighthouse lab tooling (Node 22 is used in CI).
 
 ```bash
 npm ci
@@ -27,6 +27,8 @@ npm run build
 npx playwright install chromium
 npm test
 ```
+
+After building and installing Chromium, run `npm run audit:lab` for three mobile Lighthouse samples per representative page plus desktop/mobile screenshots. Reports are saved under `audit-results/`; the script starts and stops its own production server, so port 3000 must be free.
 
 The Playwright configuration starts the production server. `npx playwright show-report` opens its report. CI installs browser system dependencies as well.
 

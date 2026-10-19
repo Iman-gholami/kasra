@@ -51,6 +51,7 @@ export function ProductDetail({ product: p }: { product: Product }) {
             width={640}
             height={840}
             preload
+            fetchPriority="high"
             sizes="(max-width: 760px) 100vw, 55vw"
           />
           <button

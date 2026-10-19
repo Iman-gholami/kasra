@@ -1872,7 +1872,7 @@ caption {
     font-size: 13px;
   }
   .purchase {
-    position: sticky;
+    position: static;
     bottom: 0;
     background: var(--bg);
     padding: 12px 0 calc(12px + env(safe-area-inset-bottom));
