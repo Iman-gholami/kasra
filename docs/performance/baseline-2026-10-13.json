@@ -1,0 +1,101 @@
+[
+  {
+    "route": "/",
+    "runs": [
+      {
+        "performance": 99,
+        "accessibility": 100,
+        "lcpMs": 1968.5414,
+        "cls": 0.03645200486026731,
+        "tbtMs": 86.5
+      },
+      {
+        "performance": 99,
+        "accessibility": 100,
+        "lcpMs": 2066.04025,
+        "cls": 0,
+        "tbtMs": 79.50000000000023
+      },
+      {
+        "performance": 99,
+        "accessibility": 100,
+        "lcpMs": 2059.86575,
+        "cls": 0,
+        "tbtMs": 75
+      }
+    ],
+    "median": {
+      "performance": 99,
+      "accessibility": 100,
+      "lcpMs": 2059.86575,
+      "cls": 0,
+      "tbtMs": 79.50000000000023
+    }
+  },
+  {
+    "route": "/shop",
+    "runs": [
+      {
+        "performance": 95,
+        "accessibility": 98,
+        "lcpMs": 2801.5316250000005,
+        "cls": 0.03645200486026731,
+        "tbtMs": 76.5
+      },
+      {
+        "performance": 95,
+        "accessibility": 98,
+        "lcpMs": 2810.764,
+        "cls": 0.03645200486026731,
+        "tbtMs": 77.5
+      },
+      {
+        "performance": 96,
+        "accessibility": 98,
+        "lcpMs": 2619.9055,
+        "cls": 0,
+        "tbtMs": 94.5
+      }
+    ],
+    "median": {
+      "performance": 95,
+      "accessibility": 98,
+      "lcpMs": 2801.5316250000005,
+      "cls": 0.03645200486026731,
+      "tbtMs": 77.5
+    }
+  },
+  {
+    "route": "/product/shomiz-1",
+    "runs": [
+      {
+        "performance": 96,
+        "accessibility": 100,
+        "lcpMs": 2726.6571249999997,
+        "cls": 0.03645200486026731,
+        "tbtMs": 90.36857499999974
+      },
+      {
+        "performance": 96,
+        "accessibility": 100,
+        "lcpMs": 2724.877375,
+        "cls": 0.03645200486026731,
+        "tbtMs": 90.52452500000004
+      },
+      {
+        "performance": 96,
+        "accessibility": 100,
+        "lcpMs": 2725.401,
+        "cls": 0.03645200486026731,
+        "tbtMs": 92.31979999999999
+      }
+    ],
+    "median": {
+      "performance": 96,
+      "accessibility": 100,
+      "lcpMs": 2725.401,
+      "cls": 0.03645200486026731,
+      "tbtMs": 90.52452500000004
+    }
+  }
+]
