@@ -62,6 +62,9 @@ export function Wishlist() {
     );
   if (loaded !== ids) return <p role="status">در حال آماده‌کردن انتخاب‌ها…</p>;
   return (
-    <ProductGrid products={products.filter((p) => wishlist.includes(p.id))} />
+    <>
+      <h2 className="sr-only">محصولات محبوب</h2>
+      <ProductGrid products={products.filter((p) => wishlist.includes(p.id))} />
+    </>
   );
 }
