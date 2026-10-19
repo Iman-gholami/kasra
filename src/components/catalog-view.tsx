@@ -190,7 +190,7 @@ export async function CatalogView({
       {result.total ? (
         <>
           <h2 className="sr-only">محصولات</h2>
-          <ProductGrid products={result.products} />
+          <ProductGrid products={result.products} prioritizeFirst />
         </>
       ) : (
         <div className="empty">
